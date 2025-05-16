@@ -78,12 +78,17 @@ public class ListaDuplamenteEncadeada<T>{
     }
     // OPERAÇÃO: exibirInicioFim(T modulo) Exibe do inicio ao fim
     public boolean exibirInicioFim(T modulo){
-        if (isEmpty())return null;
-        return true;
+        if (isEmpty())return null; // se a lista estiver vazia, não faça nada
+        No<T> atual = head; //seta atual como head
+        while (atual != null) { // enquanto nó atual não for nulo
+            System.out.print(atual.getModulo() + " "); // imprime o módulo
+            atual = atual.getProximo(); // e seta o atual para o próximo
+        }
+        System.out.println(); //fim quando o nó atual for null.
     }
     // OPERCAÇÃO: exibirFimInicio(T modulo) Exibe do fim ao inicio
     public boolean exibirFimInicio(T modulo){
-        if (isEmpty())return null;
+        if (isEmpty())return null; // se estiver vazio retorne nulo
         return true;
     }
     // OPERAÇÃO: navegacao(T modulo) Navega para frente e para trás na lista
