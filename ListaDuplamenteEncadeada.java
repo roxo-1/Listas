@@ -96,9 +96,4 @@ public class ListaDuplamenteEncadeada<T>{
         }
         System.out.println();
     }
-    // OPERAÇÃO: navegacao(T modulo) Navega para frente e para trás na lista
-    public boolean navegacao(T modulo){
-        if (isEmpty())return false;
-        return true;
-    }
 }
