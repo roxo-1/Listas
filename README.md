@@ -30,3 +30,6 @@ Implemente em Java duas classes distintas:
 •O código deve ser modularizado, com tratamento de exceções e sem uso de bibliotecas prontas como LinkedList.
 
 •Crie uma classe Main para testar ambas as listas com exemplos reais de módulos como: "Introdução", "Algoritmos", "Estruturas de Dados", etc.
+
+## Dificuldades Encontradas
+• Os métodos da lista duplamente encadeada circular, adicionar e navegar, pois eram muitos mais ponteiro para relacionar do que lista duplamente encadeada simples
