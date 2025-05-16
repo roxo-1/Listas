@@ -8,4 +8,8 @@ public class Node <T>{
         this.proximo = null;
         this.anterior = null;
     }
+
+     public T getModulo() {
+        return modulo;
+    }
 }
