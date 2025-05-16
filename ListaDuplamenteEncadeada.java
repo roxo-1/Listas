@@ -26,4 +26,11 @@ public class ListaDuplamenteEncadeada<T>{
 	public boolean isEmpty() {
     return head == null;
     }
+    // OPERAÇÃO: adicionarFim() Permite adicionar elementos no final da lista
+    // OPERAÇÃO: adicionarInicio() Permite adicionar elementos no inicio da lista
+    // OPERAÇÃO: removerFim() Permite remover elementos no final da lista
+    // OPERAÇÃO: removerInicio() Permite remover elementos no inicio da lista
+    // OPERAÇÃO: exibirInicioFim() Exibe do inicio ao fim
+    // OPERCAÇÃO: exibirFimInicio() Exibe do fim ao inicio
+    // OPERAÇÃO: navegacao() Navega para frente e para trás na lista
 }
