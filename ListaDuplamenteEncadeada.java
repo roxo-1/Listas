@@ -26,11 +26,47 @@ public class ListaDuplamenteEncadeada<T>{
 	public boolean isEmpty() {
     return head == null;
     }
-    // OPERAÇÃO: adicionarFim() Permite adicionar elementos no final da lista
-    // OPERAÇÃO: adicionarInicio() Permite adicionar elementos no inicio da lista
-    // OPERAÇÃO: removerFim() Permite remover elementos no final da lista
-    // OPERAÇÃO: removerInicio() Permite remover elementos no inicio da lista
-    // OPERAÇÃO: exibirInicioFim() Exibe do inicio ao fim
-    // OPERCAÇÃO: exibirFimInicio() Exibe do fim ao inicio
-    // OPERAÇÃO: navegacao() Navega para frente e para trás na lista
+    // OPERAÇÃO: adicionarFim(T modulo) Permite adicionar elementos no final da lista
+    public boolean adicionarFim(T modulo){
+        No<T> aux = new No<T> (modulo); // cria o novo nó
+        if (isEmpty()){ // se estiver vazio
+		head = tail = aux; // seta head e tail para auxiliar
+	    } else{ //senão
+            aux.setAnterior(tail); //seta anterior = tail
+            tail.setProximo(aux); // seta proximo = aux
+            tail = aux;
+        }
+        size++;
+        return true;
+    }
+    // OPERAÇÃO: adicionarInicio(T modulo) Permite adicionar elementos no inicio da lista
+    public boolean adicionarInicio(T modulo){
+        size++;
+        return true;
+    }
+    // OPERAÇÃO: removerFim(T modulo) Permite remover elementos no final da lista
+    public boolean removerFim(T modulo){
+        if (isEmpty())return false;
+        return true;
+    }
+    // OPERAÇÃO: removerInicio(T modulo) {Permite remover elementos no inicio da lista
+    public boolean removerInicio(T modulo){
+        if (isEmpty())return false;
+        return true;
+    }
+    // OPERAÇÃO: exibirInicioFim(T modulo) Exibe do inicio ao fim
+    public boolean exibirInicioFim(T modulo){
+        if (isEmpty())return null;
+        return true;
+    }
+    // OPERCAÇÃO: exibirFimInicio(T modulo) Exibe do fim ao inicio
+    public boolean exibirFimInicio(T modulo){
+        if (isEmpty())return null;
+        return true;
+    }
+    // OPERAÇÃO: navegacao(T modulo) Navega para frente e para trás na lista
+    public boolean navegacao(T modulo){
+        if (isEmpty())return false;
+        return true;
+    }
 }

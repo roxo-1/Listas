@@ -1,15 +1,31 @@
-public class Node <T>{
+public class No<T> {
     T modulo; //valor genérico
-    private Node proximo; // ponteiro apontando para o anterior
-    private Node anterior; //ponteiro apontado para o próximo
+    private No<T> anterior; // ponteiro apontando para o anterior
+    private No<T> proximo; //ponteiro apontado para o próximo
 
-    public Node (T modulo){
+    public No(T modulo){
         this.modulo = modulo;
         this.proximo = null;
         this.anterior = null;
     }
 
-     public T getModulo() {
+     public T getModulo() { // pega módulo
         return modulo;
     }
+    public No<T> getProximo() { //pega proximo
+        return proximo;
+    }
+
+    public void setProximo(No<T> proximo) { //seta proximo
+        this.proximo = proximo;
+    }
+
+    public No<T> getAnterior() { // pega anterior
+        return anterior;
+    }
+
+    public void setAnterior(No<T> anterior) { //seta anterior
+        this.anterior = anterior;
+    }
+
 }
