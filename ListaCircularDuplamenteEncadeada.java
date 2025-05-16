@@ -37,7 +37,23 @@ public class ListaCircularDuplamenteEncadeada<T> {
 
     // Método para adicionar elemento — ainda não implementado, lança exceção
     public boolean adicionar(T modulo) {
-        throw new UnsupportedOperationException("Método adicionar ainda não implementado.");
+        No<T> aux = new No<>(modulo); // cria novo nó
+        if (isEmpty()) {// Se a lista estiver vazia, nó aponta para si mesmo
+            head = tail = aux; //seta head  e tail como auxiliar;
+            aux.setProximo(aux); //seta o proximo do aux para aux
+            aux.setAnterior(aux);// seta o anterior do aux para aux
+        } else {
+            // Encadeia o novo nó no final da lista
+            aux.setAnterior(tail); // seta o anterior do aux para tail;
+            aux.setProximo(head); // set o proximo do aux para head
+            tail.setProximo(aux); // seta o próximo do tail para aux
+            head.setAnterior(aux); // seta o anterior do head para aux
+            tail = aux; // seta o tail para aux
+        }
+
+        size++; // incrementa o tamanho da lista
+        return true;
+
     }
 
     // Método para navegar circularmente — ainda não implementado, lança exceção
