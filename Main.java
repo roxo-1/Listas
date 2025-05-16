@@ -1,5 +1,5 @@
 import No;
-import Lista;
+import ListaDuplamenteEncadeada;
 
 public class Main{
     public static void main(String[] args){
