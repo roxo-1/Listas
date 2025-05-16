@@ -12,6 +12,9 @@ public class No<T> {
      public T getModulo() { // pega módulo
         return modulo;
     }
+
+    public boolean isEmpty() {return head == null;}
+
     public No<T> getProximo() { //pega proximo
         return proximo;
     }

@@ -32,8 +32,8 @@ public class ListaDuplamenteEncadeada<T>{
         if (isEmpty()){ // se estiver vazio
 		head = tail = aux; // seta head e tail para auxiliar
 	    } else{ //senão
-            aux.setAnterior(tail); //seta anterior = tail
-            tail.setProximo(aux); // seta proximo = aux
+            aux.setAnterior(tail); //seta aux anterior = tail
+            tail.setProximo(aux); // seta tail proximo = aux
             tail = aux;
         }
         size++;
@@ -41,17 +41,33 @@ public class ListaDuplamenteEncadeada<T>{
     }
     // OPERAÇÃO: adicionarInicio(T modulo) Permite adicionar elementos no inicio da lista
     public boolean adicionarInicio(T modulo){
+        No<T> aux = new No<T> (modulo); //cria o novo nó
+        if (isEmpty()){ //se estiver vazio
+            head = tail = aux; // seta head e tail para auxiliar
+        } else{ //senão
+            aux.setProximo(head);//seta aux anterior = head
+            head.setAnterior(aux);// seta head anterior = proximo
+            head = aux;
+        }
         size++;
         return true;
     }
     // OPERAÇÃO: removerFim(T modulo) Permite remover elementos no final da lista
-    public boolean removerFim(T modulo){
-        if (isEmpty())return false;
+    public boolean removerFim(){
+        if (isEmpty())return false; // se a lista estiver vazia, ou seja, não tiver o que remover ele sai
+        if(size == 1){ // se a lista tiver apenas um elemento
+            head = tail = null;//limpa head e tail
+        } else{ //senão
+            tail = tail.getAnterior();
+            tail.setProximo(null);
+        }
+        size--;
         return true;
     }
     // OPERAÇÃO: removerInicio(T modulo) {Permite remover elementos no inicio da lista
-    public boolean removerInicio(T modulo){
+    public boolean removerInicio(){
         if (isEmpty())return false;
+        size--;
         return true;
     }
     // OPERAÇÃO: exibirInicioFim(T modulo) Exibe do inicio ao fim
