@@ -61,11 +61,18 @@ public class ListaCircularDuplamenteEncadeada<T> {
         if (isEmpty()){
             throw new IllegalStateException("Não é possível navegar na lista, pois ela está vazia");
         }
-        No<T> atual = head; //seta atual como head (começa no head)
-        for (int i = 0; i < passos; i++) {
-        System.out.println("Passo " + (i + 1) + ": " + atual.getModulo());
-        atual = atual.getProximo();
-    }
-        System.out.println(); //fim quando o nó atual for null.
+        No<T> atual = head;
+
+        if (passos > 0) {
+            for (int i = 0; i < passos; i++) {
+                atual = atual.getProximo();
+                System.out.println(atual.getModulo());
+            }
+        } else {
+            for (int i = 0; i < Math.abs(passos); i++) {
+                atual = atual.getAnterior();
+                System.out.println(atual.getModulo());
+            }
+        }
     }
 }
