@@ -1,10 +1,6 @@
-import No;
-import ListaCircularDuplamenteEncadeada;
-
 public class MainCircular {
     public static void main(String[] args) {
-        ListaCircularDuplamenteEncadeada<String> listaCircular = 
-          new ListaCircularDuplamenteEncadeada<>();
+        ListaCircularDuplamenteEncadeada<String> listaCircular = new ListaCircularDuplamenteEncadeada<>();
 
         listaCircular.adicionar("Introdução");
         listaCircular.adicionar("Algoritmos");

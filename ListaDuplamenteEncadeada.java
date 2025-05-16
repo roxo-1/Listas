@@ -1,6 +1,6 @@
 public class ListaDuplamenteEncadeada<T>{
-    private Node<T> head;
-    private Node<T> tail;
+    private No<T> head;
+    private No<T> tail;
     private int size;
 
     public ListaDuplamenteEncadeada(){
@@ -14,17 +14,23 @@ public class ListaDuplamenteEncadeada<T>{
         return size;
     }
     // OPERAÇÃO: getHead() Retorna uma referência para o nó do início da lista, caso a lista estiver vazia retorna null.
-	public Node<T> getHead() {
+	public No<T> getHead() {
+        if (isEmpty()) {
+            throw new IllegalStateException("A lista está vazia, não existe head.");
+        }
 		return head;
 	}
 
     // OPERAÇÃO: getTail() Retorna uma referência para o nó do final da lista, caso a lista estiver vazia retorna null.
-	public Node<T> getTail() {
+	public No<T> getTail() {
+        if (isEmpty()) {
+            throw new IllegalStateException("A lista está vazia, não existe tail.");
+        }
 		return tail;
 	}
     // OPERAÇÃO: isEmpty() Retorna uma referência para o nó do final da lista, caso a lista estiver vazia retorna null.
 	public boolean isEmpty() {
-    return head == null;
+        return head == null;
     }
     // OPERAÇÃO: adicionarFim(T modulo) Permite adicionar elementos no final da lista
     public boolean adicionarFim(T modulo){
@@ -77,7 +83,7 @@ public class ListaDuplamenteEncadeada<T>{
         return true;
     }
     // OPERAÇÃO: exibirInicioFim(T modulo) Exibe do inicio ao fim
-    public boolean exibirInicioFim(T modulo){
+    public void exibirInicioFim(){
         if (isEmpty()){ // se a lista estiver vazia, não faça nada
             throw new IllegalStateException("Não é possível exibir: a lista está vazia.");
         }
@@ -89,7 +95,7 @@ public class ListaDuplamenteEncadeada<T>{
         System.out.println(); //fim quando o nó atual for null.
     }
     // OPERCAÇÃO: exibirFimInicio(T modulo) Exibe do fim ao inicio
-    public boolean exibirFimInicio(T modulo){
+    public void exibirFimInicio(){
         if (isEmpty()){ // se a lista estiver vazia, não faça nada
             throw new IllegalStateException("Não é possível exibir: a lista está vazia.");
         }

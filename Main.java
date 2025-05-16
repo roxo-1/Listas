@@ -1,6 +1,3 @@
-import No;
-import ListaDuplamenteEncadeada;
-
 public class Main{
     public static void main(String[] args){
         ListaDuplamenteEncadeada<String> lista = new ListaDuplamenteEncadeada<>();

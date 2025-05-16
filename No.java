@@ -13,8 +13,6 @@ public class No<T> {
         return modulo;
     }
 
-    public boolean isEmpty() {return head == null;}
-
     public No<T> getProximo() { //pega proximo
         return proximo;
     }
