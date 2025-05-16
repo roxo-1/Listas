@@ -89,7 +89,7 @@ public class ListaDuplamenteEncadeada<T>{
         }
         No<T> atual = head; //seta atual como head (começa no head)
         while (atual != null) { // enquanto nó atual não for nulo
-            System.out.print(atual.getModulo() + " "); // imprime o módulo
+            System.out.print(atual.getModulo() + " <-> "); // imprime o módulo
             atual = atual.getProximo(); // e seta o atual para o próximo
         }
         System.out.println(); //fim quando o nó atual for null.
@@ -101,7 +101,7 @@ public class ListaDuplamenteEncadeada<T>{
         }
         No<T> atual = tail; //seta atual como tail(começa no tail)
         while (atual != null) { // enquanto nó atual não for nulo
-            System.out.print(atual.getModulo() + " "); // imprime o módulo
+            System.out.print(atual.getModulo() + "<-> "); // imprime o módulo
             atual = atual.getAnterior(); // e seta o atual para o Anterior
         }
         System.out.println();
