@@ -56,7 +56,7 @@ public class ListaDuplamenteEncadeada<T>{
     public boolean removerFim(){
         if (isEmpty())return false; // se a lista estiver vazia, ou seja, não tiver o que remover ele sai
         if(size == 1){ // se a lista tiver apenas um elemento
-            head = tail = null;//limpa head e tail
+            head = tail = null;// limpa head e tail
         } else{ //senão
             tail = tail.getAnterior();
             tail.setProximo(null);
@@ -66,7 +66,13 @@ public class ListaDuplamenteEncadeada<T>{
     }
     // OPERAÇÃO: removerInicio(T modulo) {Permite remover elementos no inicio da lista
     public boolean removerInicio(){
-        if (isEmpty())return false;
+        if (isEmpty())return false; // se a lista estiver vazia, não faça nada
+        if(size == 1){ // se a lista tiver apenas um elemento
+            head = tail = null; // limpa head e tail
+        } else{ //senão
+            head = head.getProximo();
+            head.setAnterior(null);
+        }
         size--;
         return true;
     }
