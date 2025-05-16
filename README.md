@@ -32,4 +32,4 @@ Implemente em Java duas classes distintas:
 •Crie uma classe Main para testar ambas as listas com exemplos reais de módulos como: "Introdução", "Algoritmos", "Estruturas de Dados", etc.
 
 ## Dificuldades Encontradas
-• Os métodos da lista duplamente encadeada circular, adicionar e navegar, pois eram muitos mais ponteiro para relacionar do que lista duplamente encadeada simples
+• Os métodos da lista duplamente encadeada circular, adicionar e navegar, pois eram muitos mais ponteiro para relacionar do que lista duplamente encadeada simples, ou seja, mais fácil de se perder e esqeucer alguma coisa.
