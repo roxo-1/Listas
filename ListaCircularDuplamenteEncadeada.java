@@ -35,7 +35,7 @@ public class ListaCircularDuplamenteEncadeada<T> {
         return head == null;
     }
 
-    // Método para adicionar elemento — ainda não implementado, lança exceção
+    // OPERAÇÃO adicionar() Adiciona um novo elemento
     public boolean adicionar(T modulo) {
         No<T> aux = new No<>(modulo); // cria novo nó
         if (isEmpty()) {// Se a lista estiver vazia, nó aponta para si mesmo
@@ -56,8 +56,16 @@ public class ListaCircularDuplamenteEncadeada<T> {
 
     }
 
-    // Método para navegar circularmente — ainda não implementado, lança exceção
+    //OPERAÇÃO navegarCircular() navega/imprime a lista circular;
     public void navegarCircular(int passos) {
-        throw new UnsupportedOperationException("Método navegarCircular ainda não implementado.");
+        if (isEmpty()){
+            throw new IllegalStateException("Não é possível navegar na lista, pois ela está vazia");
+        }
+        No<T> atual = head; //seta atual como head (começa no head)
+        for (int i = 0; i < passos; i++) {
+        System.out.println("Passo " + (i + 1) + ": " + atual.getModulo());
+        atual = atual.getProximo();
+    }
+        System.out.println(); //fim quando o nó atual for null.
     }
 }

@@ -51,8 +51,8 @@ public class ListaDuplamenteEncadeada<T>{
         if (isEmpty()){ //se estiver vazio
             head = tail = aux; // seta head e tail para auxiliar
         } else{ //senão
-            aux.setProximo(head);//seta aux anterior = head
-            head.setAnterior(aux);// seta head anterior = proximo
+            aux.setProximo(head);//seta o proximo do aux para head
+            head.setAnterior(aux);// seta anterior do head para
             head = aux;
         }
         size++;
