@@ -1,5 +1,4 @@
 import No;
-import ListaCircular;
 import Lista;
 
 public class Main{
