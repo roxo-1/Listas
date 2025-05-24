@@ -137,8 +137,10 @@ public class  LDECO<T>{
         return false;
     }
     //•Limpar a lista (clear()).
-    public clear(){
-        //pass
+    public void clear(){
+        head = null;
+        tail = null;
+        size = 0;
     }
     //•Obter um nó pela posição (get(int pos)).
     public get(int pos){
