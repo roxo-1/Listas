@@ -10,6 +10,9 @@ public class ListaEncadeadaSimples<T> {
     public int size() {
         return size;
     }
+    public getHead(){
+        return head;
+    }
 
     public boolean isEmpty() {
         return head == null;
@@ -124,5 +127,20 @@ public class ListaEncadeadaSimples<T> {
                 atual = atual.next;
             }
         }
+    }
+
+    public void concatena(LinkedLIst<T> lista)throws Exception{
+        if(isEmpty()){
+            throw new IllegalStateException("Não é possível concatenar, pois a primeira lista está vazia");
+        }
+        if(lista.isEmpty()){
+            throw new IllegalStateException("Não é possível concatenar, pois a segunda lista está vazia");
+        }
+        No<T> tail = head;
+        while (tail.getProximo() != null){
+            tail = tail.getProximo();
+        }
+        tail.setProximo(lista.getHead);
+        size += lista.getSize();
     }
 }
