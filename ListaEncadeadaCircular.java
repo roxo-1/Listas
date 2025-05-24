@@ -107,18 +107,40 @@ public class ListaEncadeadaCircular{
     }
 
     public void inverte()throws Exception{
-	if(isEmpty()){
-		throw new IllegalStateException("Não é possível inverter, pois a lista está vazia");
-	}else{
-		Stack<Integer> aux = new Stack<>(size); //cria uma pilha auxiliar do tamanho da lista
-		while(!isEmpty()){ // tira da lista e coloca na pilha
-			int valor = removeHead();
-			aux.push(valor);
-		}
-		while(!aux.isEmpty()){ //tira da pilha e coloca na lista invertida
-			int valor = aux.pop();
-			inserirFinal(valor);
-		}
-	}
-}
+        if(isEmpty()){
+            throw new IllegalStateException("Não é possível inverter, pois a lista está vazia");
+        }else{
+            Stack<Integer> aux = new Stack<>(size); //cria uma pilha auxiliar do tamanho da lista
+            while(!isEmpty()){ // tira da lista e coloca na pilha
+                int valor = removeHead();
+                aux.push(valor);
+            }
+            while(!aux.isEmpty()){ //tira da pilha e coloca na lista invertida
+                int valor = aux.pop();
+                inserirFinal(valor);
+            }
+        }
+    }
+
+    public void concatena(CircleLinkedLIst<T> lista){
+        if(isEmpty()){
+            throw new IllegalStateException("Não é possível concatenar, pois a primeira lista está vazia");
+        }
+        if(lista.isEmpty()){
+            throw new IllegalStateException("Não é possível concatenar, pois a segunda lista está vazia");
+        }
+        No<T> head2 = lista.getHead();
+        No<T> tail2 = head2;
+        while (tail2.getProximo() != head2){
+            tail2 = tail2.getProximo();
+        }
+        No<T> head = getHead();
+        No<T> tail = head;
+        while (tail.getProximo() != head){
+            tail = tail.getProximo();
+        }
+        tail.setProximo(head2);
+        tail2.setProximo(head);
+        size += lista.getSize();
+    }
 }
