@@ -17,6 +17,9 @@ public class ListaEncadeadaSimples<T> {
 
     public boolean adicionarInicio(T modulo) {
         No<T> novo = new No<>(modulo);
+        if(isEmpty() == true){
+            head = tail = aux;
+        }
         novo.setProximo(head);
         head = novo;
         size++;
