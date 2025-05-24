@@ -60,7 +60,41 @@ public class  LDECO<T>{
     }
     //•Inserir um elemento na ordem correta (insertAscending()).
     public boolean insertAscending (int key, T data){
+        No<T> aux = new No<>(modulo);
 	    if (isFull()) return false;
+        else if (isEmpty()){
+            head = tail = aux;
+            aux.setProximo(aux);
+            aux.setAnterior(aux);
+        } else{
+            Node <T> pAnda=head, pAnt=null;
+            while (pAnda.getData().getKey() <= key && pAnda.getProx() != head) {
+                pAnt = pAnda;
+                pAnda = pAnda.getProx();
+            }
+            if (pAnt == null){ //inserção cabeça 
+                    head = aux;
+                    aux.setRight(pAnda);
+                    pAnda.getLeft().setRight(aux);
+                    aux.setLeft(pAnda.getLeft());
+                    pAnda.setLeft(aux);
+            } else if (pAnda.get() != head){ //inserão do meio
+                    aux.setRight(pAnda);
+                    aux.setLeft(pAnt);
+                    pAnda.setLeft(aux);
+                    pAnt.setRight(aux);
+            } else {
+                pAnda.getRight().setLeft(aux);
+                aux.setRight(pAnda.getRight());
+                pAnda.setRight(aux);
+                aux.setLeft(pAnda);
+                // solução do professor
+                aux.setLeft(pAnda);
+                aux.setRight(head);
+                pAnda.setRight(aux);
+                head.setLeft(aux);
+            }
+        }
 		size++;
 		return true;
 	}
