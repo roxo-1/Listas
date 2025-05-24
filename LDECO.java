@@ -114,8 +114,27 @@ public class  LDECO<T>{
     }
 
     //•Remover um elemento (remove(T data) ou remove(int Key) ou remove(int pos)).
-    public remove(T Key){
-        //pass
+    public boolean remove(T Key){
+        if(isEmpty()) return false;
+        Node<T> aux = head;
+        int count = 0;
+        while(count<size){
+            if(aux.getModulo().equals(key)){
+                Node<T> pAnt = aux.getAnterior();
+                Node<T> pProx = aux.getProximo();
+                pAnt.setProximo(pProx);
+                pProx.setAnterior(pAnt);
+                if (aux == head) head = pProx;
+                if (aux == tail) tail = pAnt;
+                aux.setAnterior(null);
+                aux.setProximo(null);
+                size--; 
+                return true;
+            }
+            aux = aux.getProximo();
+            count++;
+        }
+        return false;
     }
     //•Limpar a lista (clear()).
     public clear(){
