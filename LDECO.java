@@ -178,7 +178,19 @@ public class  LDECO<T>{
 		return stringb.toString();
 	} 
 
-    public void inverte(){
-        //pass
+    public void inverte() throws Exception{
+        if(isEmpty()){
+            throw new IllegalStateException("Não é possível inverte a lista, pois ela está vazia");
+        } else{
+            ListaEncadeadaSimples<T> aux = new ListaEncadeadaSimples();
+            while(!isEmpty()){
+                T valor = removeFinal();  // Supondo que você tenha esse método
+                aux.inserirFinal(valor);
+            }
+            while (!aux.isEmpty()) { 
+                T valor = aux.removeInicio();  // Supondo que você tenha esse método
+                inserirFinal(valor);
+            }
+        }
     }
 }
