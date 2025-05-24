@@ -78,7 +78,7 @@ public class  LDECO<T>{
                     pAnda.getLeft().setRight(aux);
                     aux.setLeft(pAnda.getLeft());
                     pAnda.setLeft(aux);
-            } else if (pAnda.get() != head){ //inserão do meio
+            } else if (pAnda.getAnterior() != head){ //inserão do meio
                     aux.setRight(pAnda);
                     aux.setLeft(pAnt);
                     pAnda.setLeft(aux);
@@ -89,15 +89,53 @@ public class  LDECO<T>{
                 pAnda.setRight(aux);
                 aux.setLeft(pAnda);
                 // solução do professor
-                aux.setLeft(pAnda);
+                /*aux.setLeft(pAnda);
                 aux.setRight(head);
                 pAnda.setRight(aux);
-                head.setLeft(aux);
+                head.setLeft(aux);*/
             }
         }
 		size++;
 		return true;
 	}
+
+    //•Inserir um elemento na ordem inversa (insertDescending()).
+    public boolean insertDescending (int key, T data){
+        No<T> aux = new No<>(modulo);
+        if(isEmpty()){
+            head = tail = aux;
+            aux.setAnterior(aux);
+            aux.setProximo(aux);
+        }else{
+            No<T> anterior = head;
+            No<T> proximo = null;
+            while (anterior.getData().getKey() <= key && proximo.getProx() != head) {
+                anterior = proximo;
+                proximo = proximo.getProx();
+            }
+            //inserção no começo
+            if(proximo.getProximo() == head){
+                tail = aux;
+                aux.setRight(proximo);
+                proximo.getLeft().setRight(aux);
+                aux.setLeft(pAnda.getLeft());
+                proximo.setLeft(aux);
+            }
+            else if(anterior.getAnterior() != null){//inserção no meio*/
+                aux.setRight(pAnda);
+                aux.setLeft(pAnt);
+                proximo.setLeft(aux);
+                anterior.setRight(aux);
+            }else{//inserção no fim
+                proximo.getRight().setLeft(aux);
+                aux.setRight(proximo.getRight());
+                proximo.setRight(aux);
+                aux.setLeft(proximo);
+            }
+        }
+        size++;
+        return true;
+    }
     //•Procurar um elemento (searchAscending() ou search()).
     public Node<T> search(T valor) {
         if (isEmpty()) return null;
