@@ -193,4 +193,25 @@ public class  LDECO<T>{
             }
         }
     }
+
+    public void concatena(DLL<T> lista)throws Exception{
+        if(isEmpty()){
+            throw new IllegalStateException("Não é possível concatenar as listas pois, a primeira lista está vazia");
+        }
+        if(lista.isEmpty()){
+            throw new IllegalStateException("Não é possível concatenar as listas pois, a segunda lista está vazia");
+        }
+        //definir "variáveis"
+        No<T> head1 = getHead();//head da lista 1
+        No<T> tail1 = getTail();//tail da lista 1
+        No<T> head2 = lista.getHead(); //head da lista 2
+        No<T> tail2 = lista.getTail();//tail da lista 1
+        //concatena as duas listas
+        tail1.setProximo(head2); // o próximo do tail da lista1 deve ser o head da lista 2
+        tail2.setProximo(head1); // o próximo do tail da lista2 deve ser o head da lista 1
+        head1.setAnterior(tail2);// o anterior do head da lista1 deve der o tail da lista 2
+        head2.setAnterior(tail1); // o anterior do head da lista2 deve ser o tail da lista 1
+        this.tail = tail2; //atualiza do tail da lista concatenada
+        size += lista.getSize();//atualizando o tamanho da lista depois de concatenada
+    }
 }

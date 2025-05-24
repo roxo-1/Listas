@@ -122,7 +122,7 @@ public class ListaEncadeadaCircular{
         }
     }
 
-    public void concatena(CircleLinkedLIst<T> lista){
+    public void concatena(CircleLinkedLIst<T> lista)throws Exception{
         if(isEmpty()){
             throw new IllegalStateException("Não é possível concatenar, pois a primeira lista está vazia");
         }
