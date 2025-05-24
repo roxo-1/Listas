@@ -97,7 +97,7 @@ public class ListaEncadeadaCircular{
         if (isEmpty()==true) return false;
         else if(size == 1){
             head = null;
-            tail = null
+            tail = null;
         }else{
             tail = tail.getAnterior();
             tail.setProximo(head);

@@ -81,7 +81,7 @@ public class ListaEncadeadaSimples<T> {
             atual = atual.getProximo();
         }
 
-        No<T> removido = atual.getProximo();
+        No<T> removido = atual.getProximo(); //tail = atual;
         atual.setProximo(removido.getProximo());
         size--;
         return true;
