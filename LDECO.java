@@ -100,41 +100,45 @@ public class  LDECO<T>{
 	}
 
     //•Inserir um elemento na ordem inversa (insertDescending()).
-    public boolean insertDescending (int key, T data){
-        No<T> aux = new No<>(modulo);
-        if(isEmpty()){
-            head = tail = aux;
-            aux.setAnterior(aux);
-            aux.setProximo(aux);
-        }else{
-            No<T> anterior = head;
-            No<T> proximo = null;
-            while (anterior.getData().getKey() <= key && proximo.getProx() != head) {
-                anterior = proximo;
-                proximo = proximo.getProx();
-            }
-            //inserção no começo
-            if(proximo.getProximo() == head){
-                tail = aux;
-                aux.setRight(proximo);
-                proximo.getLeft().setRight(aux);
-                aux.setLeft(pAnda.getLeft());
-                proximo.setLeft(aux);
-            }
-            else if(anterior.getAnterior() != null){//inserção no meio*/
-                aux.setRight(pAnda);
-                aux.setLeft(pAnt);
-                proximo.setLeft(aux);
-                anterior.setRight(aux);
-            }else{//inserção no fim
-                proximo.getRight().setLeft(aux);
-                aux.setRight(proximo.getRight());
-                proximo.setRight(aux);
-                aux.setLeft(proximo);
-            }
-        }
-        size++;
-        return true;
+    public boolean insertDescending(int key, T modulo) {
+    No<T> aux = new No<>(modulo); // Criação do novo nó com o dado
+    if (isEmpty()) {
+    head = tail = aux;
+    aux.setAnterior(aux);
+    aux.setProximo(aux);
+    } else {
+    No<T> pAnda = head;
+    // Percorre enquanto a chave for menor que a do nó atual e não der a volta
+    while (key < pAnda.getData().getKey() && pAnda.getProximo() != head) {
+        pAnda = pAnda.getProximo();
+    }
+    // Inserção no início
+    if (pAnda == head && key > pAnda.getData().getKey()) {
+        aux.setProximo(pAnda);
+        aux.setAnterior(tail);
+        tail.setProximo(aux);
+        pAnda.setAnterior(aux);
+        head = aux;
+    }
+    // Inserção no final
+    else if (pAnda == tail && key < pAnda.getData().getKey()) {
+        aux.setProximo(head);
+        aux.setAnterior(pAnda);
+        pAnda.setProximo(aux);
+        head.setAnterior(aux);
+        tail = aux;
+    }
+    // Inserção no meio
+    else {
+        No<T> pAnt = pAnda.getAnterior();
+        aux.setProximo(pAnda);
+        aux.setAnterior(pAnt);
+        pAnt.setProximo(aux);
+        pAnda.setAnterior(aux);
+    }
+    }
+    size++;
+    return true;
     }
     //•Procurar um elemento (searchAscending() ou search()).
     public Node<T> search(T valor) {
