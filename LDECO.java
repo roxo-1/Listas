@@ -65,9 +65,20 @@ public class  LDECO<T>{
 		return true;
 	}
     //•Procurar um elemento (searchAscending() ou search()).
-    public searchAscending(){
-        //pass
+    public Node<T> search(T valor) {
+        if (isEmpty()) return null;
+        Node<T> atual = head;
+        int count = 0;
+        while (count < size) {
+            if (atual.getModulo().equals(valor)) { // se o nó atual for igual ao valor pedido
+                return atual; // retorne o valor atual
+            }
+            atual = atual.getProximo(); //passa pro próximo
+            count++;//incrementa contador
+        }
+        return null;
     }
+
     //•Remover um elemento (remove(T data) ou remove(int Key) ou remove(int pos)).
     public remove(T Key){
         //pass
