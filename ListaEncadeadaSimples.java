@@ -107,4 +107,22 @@ public class ListaEncadeadaSimples<T> {
         }
         System.out.println("null");
     }
+
+    public void inverte() throws Exception{
+        if(isEmpty()){
+            throw new IllegalStateException("Não é possível inverter, pois a lista está vazia");
+        }else{
+            Stack<Integer> aux = new Stack<>(size); //cria uma pilha auxiliar do tamanho da lista
+            atual = head;
+            for (int i = 0; i < size; i++) { // tira da lista e coloca na pilha
+                aux.push(atual.valor);
+                atual = atual.next;
+            }
+            atual = head;
+            for (int i = 0; i < size; i++) { //tira da pilha e coloca na lista invertida
+                atual.valor = aux.pop();
+                atual = atual.next;
+            }
+        }
+    }
 }
