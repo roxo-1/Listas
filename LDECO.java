@@ -143,8 +143,14 @@ public class  LDECO<T>{
         size = 0;
     }
     //•Obter um nó pela posição (get(int pos)).
-    public get(int pos){
-        //pass
+    public T get(int pos){
+        if(isEmpty()) return false;
+        Node<T> atual = head;
+        for (int i = 0; i < pos; i++) {
+            atual = atual.getProximo();
+        }
+
+        return atual.getModulo();
     }
     //•Obter a representação da lista em formato string (toString()).*/
     public toString(){
