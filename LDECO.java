@@ -153,7 +153,28 @@ public class  LDECO<T>{
         return atual.getModulo();
     }
     //•Obter a representação da lista em formato string (toString()).*/
-    public toString(){
-        //pass
-    }
+    public String toString(){
+        StringBuilder stringb = new StringBuilder();
+		stringb.append("(").append(count).append(") \n");
+
+		if (head == null) {
+			return stringb.toString();
+		} else {
+			Node atualNode = head;
+			while (atualNode != null) {
+				Node ant = atualNode.getAnterior();
+				Node prox = atualNode.getProximo();
+				String formatted = String.format("%.1f", atualNode.getModulo());
+				String idAnt = (ant == null) ? "null <- (" : (ant.getId() + " <- (");
+				String idProx = (prox == null) ? "null" : (prox.getId());
+				stringb.append(idAnt)
+						.append(atualNode.getId()).append(";")
+						.append(atualNode.getNome()).append(";")
+						.append(formatted).append(") -> ")
+						.append(idProx).append("\n");
+				atualNode = atualNode.getProximo();
+			}
+		}
+		return stringb.toString();
+	} 
 }
