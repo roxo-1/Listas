@@ -177,4 +177,8 @@ public class  LDECO<T>{
 		}
 		return stringb.toString();
 	} 
+
+    public void inverte(){
+        //pass
+    }
 }

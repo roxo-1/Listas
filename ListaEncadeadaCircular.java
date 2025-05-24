@@ -106,7 +106,7 @@ public class ListaEncadeadaCircular{
         return true;
     }
 
-    public void inverte(){
+    public void inverte()throws Exception{
 	if(isEmpty()){
 		throw new IllegalStateException("Não é possível inverter, pois a lista está vazia");
 	}else{
