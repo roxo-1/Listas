@@ -105,4 +105,20 @@ public class ListaEncadeadaCircular{
         size--;
         return true;
     }
+
+    public void inverte(){
+	if(isEmpty()){
+		throw new IllegalStateException("Não é possível inverter, pois a lista está vazia");
+	}else{
+		Stack<Integer> aux = new Stack<>(size); //cria uma pilha auxiliar do tamanho da lista
+		while(!isEmpty()){ // tira da lista e coloca na pilha
+			int valor = removeHead();
+			aux.push(valor);
+		}
+		while(!aux.isEmpty()){ //tira da pilha e coloca na lista invertida
+			int valor = aux.pop();
+			inserirFinal(valor);
+		}
+	}
+}
 }
