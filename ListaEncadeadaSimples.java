@@ -98,6 +98,27 @@ public class ListaEncadeadaSimples<T> {
         return true;
     }
 
+    public boolean removerFim() {
+        if (isEmpty()) return false;
+    
+        if (head.getProximo() == null) {
+            // Só tem um elemento
+            head = null;
+        } else {
+            Node<T> aux = head;
+            // Vai até o penúltimo nó
+            while (aux.getProximo().getProximo() != null) {
+                aux = aux.getProximo();
+            }
+            // Remove o último nó
+            aux.setProximo(null);
+        }
+    
+        size--;
+        return true;
+    }
+
+
     public void exibir() {
         if (isEmpty()) {
             System.out.println("Lista vazia.");
