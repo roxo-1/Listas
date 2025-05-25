@@ -164,4 +164,33 @@ public class ListaEncadeadaSimples<T> {
         tail.setProximo(lista.getHead);
         size += lista.getSize();
     }
+    public ListaEncadeadaSimples<T> mergeOrdenado(ListaEncadeadaSimples<T> outra) {
+    ListaEncadeadaSimples<T> resultado = new ListaEncadeadaSimples<>();
+    No<T> atual1 = this.head;
+    No<T> atual2 = outra.head;
+
+    while (atual1 != null && atual2 != null) {
+        if (atual1.getModulo().compareTo(atual2.getModulo()) <= 0) {
+            resultado.addLast(atual1.getModulo());
+            atual1 = atual1.getProximo();
+        } else {
+            resultado.adicionarFim(atual2.getModulo());
+            atual2 = atual2.getProximo();
+        }
+    }
+
+    // Adiciona os restantes
+    while (atual1 != null) {
+        resultado.adicionarFim(atual1.getModulo());
+        atual1 = atual1.getProximo();
+    }
+
+    while (atual2 != null) {
+        resultado.adicionarFim(atual2.getModulo());
+        atual2 = atual2.getProximo();
+    }
+
+    return resultado;
+}
+
 }
