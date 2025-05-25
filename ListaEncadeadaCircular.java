@@ -1,5 +1,6 @@
 public class ListaEncadeadaCircular<T>{
     private No<T> head;
+    private No<T> tail;
     private int size;
 
     public ListaEncadeadaCircular(){
@@ -30,7 +31,7 @@ public class ListaEncadeadaCircular<T>{
         return true;
     }
 
-    public boolean adicionarMeio(T modulo){
+    public boolean adicionarMeio(T elemento, int posicao){
         // 1. Valida a posição de inserção
         if (posicao < 0 || posicao > size) {
             throw new IndexOutOfBoundsException("Posição inválida."); // Lança exceção para posições fora dos limites
@@ -67,7 +68,7 @@ public class ListaEncadeadaCircular<T>{
     }
 
     public boolean adicionarFim(T modulo){
-        No<t> aux = new No<>(modulo);
+        No<T> aux = new No<>(modulo);
         if (isEmpty() == true){
             head = tail = aux;
             aux.setProximo(head);
@@ -88,7 +89,7 @@ public class ListaEncadeadaCircular<T>{
             tail = null; // A lista fica vazia [1]
         }else{
             tail.setProximo(head.getProximo());
-            head = head.getProximo;
+            head = head.getProximo();
         }
         size--;
         return true;
@@ -113,7 +114,7 @@ public class ListaEncadeadaCircular<T>{
         }else{
             Stack<Integer> aux = new Stack<>(size); //cria uma pilha auxiliar do tamanho da lista
             while(!isEmpty()){ // tira da lista e coloca na pilha
-                int valor = removeHead();
+                int valor = removeInicio();
                 aux.push(valor);
             }
             while(!aux.isEmpty()){ //tira da pilha e coloca na lista invertida
@@ -123,7 +124,7 @@ public class ListaEncadeadaCircular<T>{
         }
     }
 
-    public void concatena(CircleLinkedLIst<T> lista)throws Exception{
+    public void concatena(ListaEncadeadaCircular<T><T> lista)throws Exception{
         if(isEmpty()){
             throw new IllegalStateException("Não é possível concatenar, pois a primeira lista está vazia");
         }
