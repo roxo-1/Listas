@@ -1,4 +1,4 @@
-public class ListaEncadeadaCircular{
+public class ListaEncadeadaCircular<T>{
     private No<T> head;
     private int size;
 
