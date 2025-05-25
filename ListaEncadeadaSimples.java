@@ -198,5 +198,35 @@ public class ListaEncadeadaSimples<T> {
         this.size = resultado.size;
     }
 
+    public void removeAt(int index) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Índice inválido");
+        }
+    
+        if (index == 0) {
+            head = head.getProximo();
+        } else {
+            Node<T> anterior = head;
+            for (int i = 0; i < index - 1; i++) {
+                anterior = anterior.getProximo();
+            }
+            anterior.setProximo(anterior.getProximo().getProximo());
+        }
+    
+        size--;
+    }
+
+    public void remove(int tipo) {
+        if (tipo != 1 && tipo != 2) {
+            throw new IllegalArgumentException("Tipo inválido: use 1 para ímpar, 2 para par");
+        }
+    
+        // Começa do fim para evitar problemas com shifting de índices
+        for (int i = size - 1; i >= 0; i--) {
+            if ((tipo == 1 && i % 2 != 0) || (tipo == 2 && i % 2 == 0)) {
+                removeAt(i);
+            }
+        }
+    }
 
 }
