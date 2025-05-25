@@ -10,7 +10,7 @@ public class ListaEncadeadaSimples<T> {
     public int size() {
         return size;
     }
-    public getHead(){
+    public No<T> getHead(){
         return head;
     }
 
@@ -21,7 +21,7 @@ public class ListaEncadeadaSimples<T> {
     public boolean adicionarInicio(T modulo) {
         No<T> novo = new No<>(modulo);
         if(isEmpty() == true){
-            head = tail = aux;
+            head = aux;
         }
         novo.setProximo(head);
         head = novo;
@@ -116,20 +116,20 @@ public class ListaEncadeadaSimples<T> {
             throw new IllegalStateException("Não é possível inverter, pois a lista está vazia");
         }else{
             Stack<Integer> aux = new Stack<>(size); //cria uma pilha auxiliar do tamanho da lista
-            atual = head;
+            aux = head;
             for (int i = 0; i < size; i++) { // tira da lista e coloca na pilha
-                aux.push(atual.valor);
-                atual = atual.next;
+                aux.push(aux.modulo);
+                aux = aux.next;
             }
-            atual = head;
+            aux = head;
             for (int i = 0; i < size; i++) { //tira da pilha e coloca na lista invertida
-                atual.valor = aux.pop();
-                atual = atual.next;
+                aux.modulo = aux.pop();
+                aux = aux.next;
             }
         }
     }
 
-    public void concatena(LinkedLIst<T> lista)throws Exception{
+    public void concatena(ListaEncadeadaSimplest<T> lista)throws Exception{
         if(isEmpty()){
             throw new IllegalStateException("Não é possível concatenar, pois a primeira lista está vazia");
         }
