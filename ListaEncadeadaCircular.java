@@ -4,6 +4,7 @@ public class ListaEncadeadaCircular{
 
     public ListaEncadeadaCircular(){
         head = null;
+        tail = null;
         size = 0;
     }
 
