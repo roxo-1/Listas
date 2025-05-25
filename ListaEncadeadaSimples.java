@@ -228,5 +228,22 @@ public class ListaEncadeadaSimples<T> {
             }
         }
     }
+    public void duplica() throws Exception {
+        if (isEmpty()) {
+            throw new IllegalStateException("Lista está vazia");
+        }
+    
+        ListaEncadeadaSimples<T> copia = new ListaEncadeadaSimples<>();
+        Node<T> atual = head;
+    
+        while (atual != null) {
+            copia.adicionarFim(atual.getModulo()); // Copia os dados, não os nós
+            atual = atual.getProximo();
+        }
+    
+        concatena(copia); // Junta a cópia ao final da lista original
+}
+
+
 
 }
