@@ -164,33 +164,39 @@ public class ListaEncadeadaSimples<T> {
         tail.setProximo(lista.getHead);
         size += lista.getSize();
     }
-    public ListaEncadeadaSimples<T> mergeOrdenado(ListaEncadeadaSimples<T> outra) {
-    ListaEncadeadaSimples<T> resultado = new ListaEncadeadaSimples<>();
-    No<T> atual1 = this.head;
-    No<T> atual2 = outra.head;
-
-    while (atual1 != null && atual2 != null) {
-        if (atual1.getModulo().compareTo(atual2.getModulo()) <= 0) {
-            resultado.addLast(atual1.getModulo());
+   public void mergeOrdenado(LinkedList<T> outra) {
+        // Lista auxiliar que receberá os dados em ordem
+        LinkedList<T> resultado = new LinkedList<>();
+    
+        Node<T> atual1 = this.head;
+        Node<T> atual2 = outra.head;
+    
+        // Mescla os elementos em ordem
+        while (atual1 != null && atual2 != null) {
+            if (atual1.getDado().compareTo(atual2.getDado()) <= 0) {
+                resultado.addLast(atual1.getDado());
+                atual1 = atual1.getProximo();
+            } else {
+                resultado.addLast(atual2.getDado());
+                atual2 = atual2.getProximo();
+            }
+        }
+    
+        // Adiciona o restante dos elementos
+        while (atual1 != null) {
+            resultado.addLast(atual1.getDado());
             atual1 = atual1.getProximo();
-        } else {
-            resultado.adicionarFim(atual2.getModulo());
+        }
+    
+        while (atual2 != null) {
+            resultado.addLast(atual2.getDado());
             atual2 = atual2.getProximo();
         }
+    
+        // Atualiza a lista atual (this) com o resultado
+        this.head = resultado.head;
+        this.size = resultado.size;
     }
 
-    // Adiciona os restantes
-    while (atual1 != null) {
-        resultado.adicionarFim(atual1.getModulo());
-        atual1 = atual1.getProximo();
-    }
-
-    while (atual2 != null) {
-        resultado.adicionarFim(atual2.getModulo());
-        atual2 = atual2.getProximo();
-    }
-
-    return resultado;
-}
 
 }
